@@ -1,62 +1,72 @@
-import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import { Provider } from "./components/ui/provider";
+import { useState, useEffect } from "react";
 
 // import GameGrid from "./components/GameGrid";
 // import GameHeading from "./components/GameHeading";
 // import GenreList from "./components/GenreList";
-// import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar";
 // import PlatformSelector from "./components/PlatformSelector";
 // import SortSelector from "./components/SortSelector";
 // import { Platform } from "./hooks/useGames";
 // import { Genre } from "./hooks/useGenres";
 
-export interface GameQuery {
-  // genre: Genre | null;
-  // platform: Platform | null;
-  sortOrder: string;
-  searchText: string;
+function useWindowSize() {
+  const [size, setSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return size;
 }
 
 function App() {
-  // const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  const { width } = useWindowSize();
 
   return (
     <Provider>
       <Grid
+        w={"100vw"}
+        h={"100vh"}
         templateAreas={{
-          base: `"nav" "main"`,
-          lg: `"nav nav" "aside main"`,
+          base: `"header header"
+                  "main main"
+                  "footer footer"`,
+          lg: `"header header"
+                  "nav main"
+                  "footer footer"`,
         }}
-        templateColumns={{
-          base: "1fr",
-          lg: "250px 1fr",
-        }}
+        gridTemplateRows={"70px 1fr 30px"}
+        gridTemplateColumns={"150px 1fr"}
+        gap="1"
+        color="blackAlpha.700"
+        fontWeight="bold"
       >
-        <GridItem area="nav">
-          <h2>NAV BAR</h2>
-          {/* <NavBar onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} /> */}
+        <GridItem pl="0" area={"header"}>
+          <NavBar />
         </GridItem>
-        <Show when={"above"}>
-          <GridItem area="aside" paddingX={5}>
-            <h2>GENRE LIST</h2>
-            {/* <GenreList selectedGenre={gameQuery.genre} onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre})} /> */}
+        {width > 1024 && (
+          <GridItem pl="0" bg="pink.300" area={"nav"}>
+            Nav
           </GridItem>
-        </Show>
-        <GridItem area="main">
-          <Box paddingLeft={2}>
-            <h2>GAME HEADING</h2>
-            {/* <GameHeading gameQuery={gameQuery} /> */}
-            <Flex marginBottom={5}>
-              <Box marginRight={5}>
-                <h3>PLATFORM SELECTOR</h3>
-                {/* <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform}) } /> */}
-              </Box>
-              <h3>SORT SELECTOR</h3>
-              {/* <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} /> */}
-            </Flex>
-          </Box>
-          <h3>GAME QUERY</h3>
-          {/* <GameGrid gameQuery={gameQuery} /> */}
+        )}
+        <GridItem pl="0" bg="green.300" area={"main"}>
+          Main
+        </GridItem>
+        <GridItem pl="0" bg="blue.300" area={"footer"}>
+          Footer
         </GridItem>
       </Grid>
     </Provider>
