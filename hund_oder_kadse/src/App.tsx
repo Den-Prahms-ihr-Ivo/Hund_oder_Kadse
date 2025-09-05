@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Provider } from "./components/ui/provider";
 
-function App() {
-  const [count, setCount] = useState(0)
+// import GameGrid from "./components/GameGrid";
+// import GameHeading from "./components/GameHeading";
+// import GenreList from "./components/GenreList";
+// import NavBar from "./components/NavBar";
+// import PlatformSelector from "./components/PlatformSelector";
+// import SortSelector from "./components/SortSelector";
+// import { Platform } from "./hooks/useGames";
+// import { Genre } from "./hooks/useGenres";
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export interface GameQuery {
+  // genre: Genre | null;
+  // platform: Platform | null;
+  sortOrder: string;
+  searchText: string;
 }
 
-export default App
+function App() {
+  // const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+
+  return (
+    <Provider>
+      <Grid
+        templateAreas={{
+          base: `"nav" "main"`,
+          lg: `"nav nav" "aside main"`,
+        }}
+        templateColumns={{
+          base: "1fr",
+          lg: "250px 1fr",
+        }}
+      >
+        <GridItem area="nav">
+          <h2>NAV BAR</h2>
+          {/* <NavBar onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} /> */}
+        </GridItem>
+        <Show when={"above"}>
+          <GridItem area="aside" paddingX={5}>
+            <h2>GENRE LIST</h2>
+            {/* <GenreList selectedGenre={gameQuery.genre} onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre})} /> */}
+          </GridItem>
+        </Show>
+        <GridItem area="main">
+          <Box paddingLeft={2}>
+            <h2>GAME HEADING</h2>
+            {/* <GameHeading gameQuery={gameQuery} /> */}
+            <Flex marginBottom={5}>
+              <Box marginRight={5}>
+                <h3>PLATFORM SELECTOR</h3>
+                {/* <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform}) } /> */}
+              </Box>
+              <h3>SORT SELECTOR</h3>
+              {/* <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} /> */}
+            </Flex>
+          </Box>
+          <h3>GAME QUERY</h3>
+          {/* <GameGrid gameQuery={gameQuery} /> */}
+        </GridItem>
+      </Grid>
+    </Provider>
+  );
+}
+
+export default App;
