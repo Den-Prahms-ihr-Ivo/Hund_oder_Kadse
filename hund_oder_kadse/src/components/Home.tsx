@@ -12,7 +12,6 @@ const Home = () => {
       gridTemplateColumns={"1fr 1fr"}
       rowGap="6"
       columnGap="2"
-      padding="2"
     >
       <GridItem area={"section1"}>
         <Box h="100%" pl="2" bg="blue.300">
