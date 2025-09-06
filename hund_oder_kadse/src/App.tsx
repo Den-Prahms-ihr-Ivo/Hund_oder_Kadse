@@ -47,6 +47,7 @@ function App() {
       gap="1"
       color="blackAlpha.700"
       fontWeight="bold"
+      className={colorMode === "light" ? "light" : "dark"}
     >
       <GridItem
         pl="0"
@@ -55,7 +56,8 @@ function App() {
       >
         <NavBar />
       </GridItem>
-      <GridItem px="2" py="6" bg="pink.300" area={"nav"}>
+
+      <GridItem px="2" bg="blue.200" py="6" area={"nav"}>
         <VStack key={"ghost"}>
           <LinkWrapper to="/">
             <HStack>
@@ -86,7 +88,8 @@ function App() {
           </LinkWrapper>
         </VStack>
       </GridItem>
-      <GridItem p="2" bg="green.300" area={"main"}>
+
+      <GridItem p="2" area={"main"}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/database" element={<Database />} />

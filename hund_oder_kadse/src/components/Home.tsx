@@ -1,4 +1,5 @@
 import { Grid, GridItem, Box } from "@chakra-ui/react";
+import InfoCard from "./InfoCard";
 
 const Home = () => {
   return (
@@ -14,14 +15,12 @@ const Home = () => {
       columnGap="2"
     >
       <GridItem area={"section1"}>
-        <Box h="100%" pl="2" bg="blue.300">
-          Question
+        <Box h="100%" pl="0">
+          <InfoCard />
         </Box>
       </GridItem>
       <GridItem area={"section2"}>
-        <Box h="100%" pl="2" bg="blue.300">
-          Vorschlag für Punishment
-        </Box>
+        <InfoCard />
       </GridItem>
       <GridItem area={"button1"}>
         <Box h="100%" pl="0" bg="blue.300">

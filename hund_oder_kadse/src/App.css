@@ -1,3 +1,4 @@
+/*
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +40,42 @@
 
 .read-the-docs {
   color: #888;
+}
+*/
+
+/*   Eigene Klassen */
+.dark {
+  background-color: #151517;
+}
+.light {
+  background-color: #eceef9;
+}
+
+.info-card {
+  border: none;
+}
+
+.info-card-light {
+  background: linear-gradient(160deg, #fc4e0b 20%, #ef9e28);
+  -webkit-box-shadow: 5px 5px 17px 2px #ef9e28;
+  box-shadow: 5px 5px 17px 2px #ef9e28;
+}
+.info-card-dark {
+  background: linear-gradient(160deg, #6206f0 0%, #4148ff 20%, #428dff 100%);
+  -webkit-box-shadow: 5px 5px 17px 2px #4148ff;
+  box-shadow: 5px 5px 17px 2px #4148ff;
+}
+
+.info-card-text {
+  color: #fafafafa;
+}
+.info-card-text-light {
+  /* ... */
+}
+
+.info-card-title {
+  color: white;
+}
+.info-card-title-light {
+  /* ... */
 }
