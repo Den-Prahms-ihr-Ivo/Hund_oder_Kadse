@@ -79,3 +79,20 @@
 .info-card-title-light {
   /* ... */
 }
+
+.clickable {
+  border-radius: 0.5rem;
+}
+.clickable:hover {
+  background-color: aliceblue;
+}
+
+.header {
+  background-color: #fff;
+}
+.nav-bar {
+}
+
+.nav-bar-bottom {
+  background-color: #fff;
+}

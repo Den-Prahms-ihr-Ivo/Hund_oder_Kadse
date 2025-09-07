@@ -1,15 +1,6 @@
-import {
-  Grid,
-  GridItem,
-  VStack,
-  IconButton,
-  Text,
-  HStack,
-} from "@chakra-ui/react";
-import { LuGamepad2, LuDatabaseZap } from "react-icons/lu";
+import { Grid, GridItem } from "@chakra-ui/react";
 
 import { useColorMode } from "./components/ui/color-mode";
-import LinkWrapper from "./components/ui/link";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -23,6 +14,8 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 import Database from "./components/Database";
+import Header from "./components/Header";
+import { useIsSideBar } from "./context/SideBarContext";
 // import PlatformSelector from "./components/PlatformSelector";
 // import SortSelector from "./components/SortSelector";
 // import { Platform } from "./hooks/useGames";
@@ -30,6 +23,7 @@ import Database from "./components/Database";
 
 function App() {
   const { colorMode } = useColorMode();
+  const { isSideBar } = useIsSideBar();
 
   return (
     <Grid
@@ -44,49 +38,23 @@ function App() {
       }}
       gridTemplateRows={"70px 1fr"}
       gridTemplateColumns={"150px 1fr"}
-      gap="1"
+      gap="0"
       color="blackAlpha.700"
       fontWeight="bold"
       className={colorMode === "light" ? "light" : "dark"}
     >
-      <GridItem
-        pl="0"
-        bg={colorMode === "light" ? "red.300" : "blue.300"}
-        area={"header"}
-      >
-        <NavBar />
+      <GridItem p="0" area={"header"} className="header">
+        <Header />
       </GridItem>
 
-      <GridItem px="2" bg="blue.200" py="6" area={"nav"}>
-        <VStack key={"ghost"}>
-          <LinkWrapper to="/">
-            <HStack>
-              <IconButton
-                size="sm"
-                aria-label="Call support"
-                key={"ghost"}
-                variant={"ghost"}
-              >
-                <LuGamepad2 />
-              </IconButton>
-              <Text textStyle="xs">Los geht's!</Text>
-            </HStack>
-          </LinkWrapper>
-
-          <LinkWrapper to="/database">
-            <HStack>
-              <IconButton
-                size="sm"
-                aria-label="Call support"
-                key={"ghost"}
-                variant={"ghost"}
-              >
-                <LuDatabaseZap />
-              </IconButton>
-              <Text textStyle="xs">Datenbank</Text>
-            </HStack>
-          </LinkWrapper>
-        </VStack>
+      <GridItem
+        p="0"
+        w="100%"
+        h="100%"
+        area={"nav"}
+        className={isSideBar ? "nav-bar" : "nav-bar nav-bar-bottom"}
+      >
+        <NavBar />
       </GridItem>
 
       <GridItem p="2" area={"main"}>

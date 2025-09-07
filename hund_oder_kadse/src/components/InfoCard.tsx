@@ -1,7 +1,12 @@
-import { Text, Card } from "@chakra-ui/react";
+import { Text, Card, HStack, Icon } from "@chakra-ui/react";
 import { useColorMode } from "../components/ui/color-mode";
+import { LuTag } from "react-icons/lu";
 
-const InfoCard = () => {
+interface Props {
+  title: string;
+}
+
+const InfoCard = ({ title }: Props) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -22,7 +27,7 @@ const InfoCard = () => {
               : "info-card-title info-card-title-dark"
           }
         >
-          Nue Camp
+          {title}
         </Card.Title>
         <Card.Description
           className={
@@ -37,7 +42,12 @@ const InfoCard = () => {
         </Card.Description>
       </Card.Body>
       <Card.Footer justifyContent="flex-end">
-        <Text textStyle="xs">Ich bin die Kategorie</Text>
+        <HStack>
+          <Icon size="sm" aria-label="Call support" key={"ghost"}>
+            <LuTag />
+          </Icon>
+          <Text textStyle="xs">Ich bin die Kategorie</Text>
+        </HStack>
       </Card.Footer>
     </Card.Root>
   );

@@ -1,4 +1,4 @@
-import { Grid, GridItem, Box } from "@chakra-ui/react";
+import { Grid, GridItem, Box, Button } from "@chakra-ui/react";
 import InfoCard from "./InfoCard";
 
 const Home = () => {
@@ -16,21 +16,27 @@ const Home = () => {
     >
       <GridItem area={"section1"}>
         <Box h="100%" pl="0">
-          <InfoCard />
+          <InfoCard title="Question" />
         </Box>
       </GridItem>
       <GridItem area={"section2"}>
-        <InfoCard />
+        <InfoCard title="Punishment" />
       </GridItem>
       <GridItem area={"button1"}>
-        <Box h="100%" pl="0" bg="blue.300">
-          New Question
-        </Box>
+        <Button
+          h="100%"
+          w="100%"
+          fontWeight="bold"
+          colorPalette="orange"
+          variant="surface"
+        >
+          Shuffle
+        </Button>
       </GridItem>
       <GridItem area={"button2"}>
-        <Box h="100%" pl="0" bg="blue.300">
-          Shuffle
-        </Box>
+        <Button h="100%" w="100%" fontWeight="bold" colorPalette="orange">
+          New Question
+        </Button>
       </GridItem>
     </Grid>
   );
