@@ -16,6 +16,7 @@ import NotFound from "./components/NotFound";
 import Database from "./components/Database";
 import Header from "./components/Header";
 import { useIsSideBar } from "./context/SideBarContext";
+import Categories from "./components/categories";
 // import PlatformSelector from "./components/PlatformSelector";
 // import SortSelector from "./components/SortSelector";
 // import { Platform } from "./hooks/useGames";
@@ -61,6 +62,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/database" element={<Database />} />
+          <Route path="/categories" element={<Categories />} />
           {/* catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -145,3 +145,26 @@
   mix-blend-mode: soft-light;
   opacity: 0.2;
 }
+
+.selection-box {
+  background-color: transparent; /* #a1a1aa */
+  cursor: pointer;
+}
+.selection-box:hover {
+  background-color: #fafafa;
+}
+
+.selection-box > div > svg {
+  color: #a1a1aa;
+}
+
+.selection-box.active > div > svg {
+  background-color: transparent; /* #a1a1aa */
+  cursor: pointer;
+  color: #fc4e0b;
+}
+.selection-box.active {
+  border: 2px solid #fc4e0b;
+  color: #fc4e0b;
+  font-weight: bold;
+}

@@ -1,37 +1,28 @@
-import { HStack, Icon, RadioCard } from "@chakra-ui/react";
-import { RiAppleFill, RiBankCardFill, RiPaypalFill } from "react-icons/ri";
+import { Flex } from "@chakra-ui/react";
+// import { RiAppleFill, RiBankCardFill, RiPaypalFill } from "react-icons/ri";
+import SelectionBox from "./ui/SelectionBox";
+import { useQuestionCategories } from "../context/QuestionCategoryContext";
+import { usePenaltyCategories } from "../context/PenaltyCategoryContext";
 
 const Categories = () => {
+  const { categories: questions, toggle: toggleQuestions } =
+    useQuestionCategories();
+  const { categories: penalties, toggle: togglePenalties } =
+    usePenaltyCategories();
   return (
-    <RadioCard.Root
-      orientation="horizontal"
-      align="center"
-      justify="center"
-      maxW="lg"
-      defaultValue="paypal"
-    >
-      <RadioCard.Label>Payment method</RadioCard.Label>
-      <HStack align="stretch">
-        {items.map((item) => (
-          <RadioCard.Item key={item.value} value={item.value}>
-            <RadioCard.ItemHiddenInput />
-            <RadioCard.ItemControl>
-              <Icon fontSize="2xl" color="fg.subtle">
-                {item.icon}
-              </Icon>
-              <RadioCard.ItemText ms="-4">{item.title}</RadioCard.ItemText>
-            </RadioCard.ItemControl>
-          </RadioCard.Item>
-        ))}
-      </HStack>
-    </RadioCard.Root>
+    <Flex gap="4" wrap="wrap">
+      <SelectionBox
+        items={questions}
+        toggle={toggleQuestions}
+        title="Question Categories"
+      ></SelectionBox>
+      <SelectionBox
+        items={penalties}
+        toggle={togglePenalties}
+        title="Penalty Categories"
+      ></SelectionBox>
+    </Flex>
   );
 };
-
-const items = [
-  { value: "paypal", title: "Paypal", icon: <RiPaypalFill /> },
-  { value: "apple-pay", title: "Apple Pay", icon: <RiAppleFill /> },
-  { value: "card", title: "Card", icon: <RiBankCardFill /> },
-];
 
 export default Categories;
