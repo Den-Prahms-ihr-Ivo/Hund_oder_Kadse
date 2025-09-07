@@ -1,12 +1,4 @@
-import {
-  VStack,
-  IconButton,
-  Text,
-  HStack,
-  Flex,
-  Box,
-  Icon,
-} from "@chakra-ui/react";
+import { VStack, Text, HStack, Flex, Box, Icon } from "@chakra-ui/react";
 import { LuGamepad2, LuDatabaseZap, LuTags } from "react-icons/lu";
 import LinkWrapper from "../components/ui/link";
 
@@ -18,17 +10,16 @@ const NavBar = () => {
   if (isSideBar) {
     return (
       <VStack py="6" key={"ghost"}>
-        <Box py={2} width="130px" className="clickable">
+        <Box
+          py={2}
+          width="130px"
+          className="clickable nav-bar-active nav-bar-active-side"
+        >
           <LinkWrapper to="/">
             <HStack>
-              <IconButton
-                size="sm"
-                aria-label="Call support"
-                key={"ghost"}
-                variant={"ghost"}
-              >
+              <Icon m="2" size="lg">
                 <LuGamepad2 />
-              </IconButton>
+              </Icon>
               <Text textStyle="xs">Los geht's!</Text>
             </HStack>
           </LinkWrapper>
@@ -37,14 +28,9 @@ const NavBar = () => {
         <Box py={2} width="130px" className="clickable">
           <LinkWrapper to="/categories">
             <HStack>
-              <IconButton
-                size="sm"
-                aria-label="Call support"
-                key={"ghost"}
-                variant={"ghost"}
-              >
+              <Icon m="2" size="lg">
                 <LuTags />
-              </IconButton>
+              </Icon>
               <Text textStyle="xs">Kategorien</Text>
             </HStack>
           </LinkWrapper>
@@ -53,14 +39,9 @@ const NavBar = () => {
         <Box py={2} width="130px" className="clickable">
           <LinkWrapper to="/database">
             <HStack>
-              <IconButton
-                size="sm"
-                aria-label="Call support"
-                key={"ghost"}
-                variant={"ghost"}
-              >
+              <Icon m="2" size="lg">
                 <LuDatabaseZap />
-              </IconButton>
+              </Icon>
               <Text textStyle="xs">Datenbank</Text>
             </HStack>
           </LinkWrapper>
@@ -69,11 +50,11 @@ const NavBar = () => {
     );
   } else {
     return (
-      <Flex p={2}>
-        <Box w="100%" py={2} className="clickable">
+      <Flex p={2} pt={0}>
+        <Box w="100%" py={2} className="clickable nav-bar-active">
           <LinkWrapper to="/">
             <VStack>
-              <Icon size="lg" aria-label="Call support" key={"ghost"} pb={0}>
+              <Icon size="lg" pb={0}>
                 <LuGamepad2 />
               </Icon>
               <Text textStyle="xs">Los geht's!</Text>
@@ -84,7 +65,7 @@ const NavBar = () => {
         <Box w="100%" py={2} className="clickable">
           <LinkWrapper to="/categories">
             <VStack>
-              <Icon size="lg" aria-label="Call support" key={"ghost"}>
+              <Icon size="lg" key={"ghost"}>
                 <LuTags />
               </Icon>
               <Text textStyle="xs">Kategorien</Text>
@@ -95,7 +76,7 @@ const NavBar = () => {
         <Box w="100%" py={2} className="clickable">
           <LinkWrapper to="/database">
             <VStack>
-              <Icon size="lg" aria-label="Call support" key={"ghost"}>
+              <Icon size="lg" key={"ghost"}>
                 <LuDatabaseZap />
               </Icon>
               <Text textStyle="xs">Datenbank</Text>

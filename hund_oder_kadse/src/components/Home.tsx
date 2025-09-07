@@ -16,11 +16,11 @@ const Home = () => {
     >
       <GridItem area={"section1"}>
         <Box h="100%" pl="0">
-          <InfoCard title="Question" />
+          <InfoCard pos_img_left={false} title="Question" />
         </Box>
       </GridItem>
       <GridItem area={"section2"}>
-        <InfoCard title="Punishment" />
+        <InfoCard pos_img_left={true} title="Penalty" />
       </GridItem>
       <GridItem area={"button1"}>
         <Button
