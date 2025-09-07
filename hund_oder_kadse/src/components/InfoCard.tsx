@@ -7,9 +7,11 @@ import raven from "../assets/raven.svg";
 interface Props {
   title: string;
   pos_img_left: boolean;
+  texts: string[];
+  category: string;
 }
 
-const InfoCard = ({ title, pos_img_left }: Props) => {
+const InfoCard = ({ title, category, pos_img_left, texts }: Props) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -33,35 +35,28 @@ const InfoCard = ({ title, pos_img_left }: Props) => {
         >
           {title}
         </Card.Title>
-        <Card.Description
-          zIndex={1}
-          textStyle="lg"
-          className={
-            colorMode === "light"
-              ? "info-card-text info-card-text-light"
-              : "info-card-text info-card-text-dark"
-          }
-        >
-          Wie viele Drittklässler kannst du unter den Tisch trinken?
-        </Card.Description>
-        <Card.Description
-          zIndex={1}
-          textStyle="md"
-          className={
-            colorMode === "light"
-              ? "info-card-text info-card-text-light"
-              : "info-card-text info-card-text-dark"
-          }
-        >
-          Sobald einer kotzt muss der nächste ran.
-        </Card.Description>
+        {texts.map(function (text, i) {
+          return (
+            <Card.Description
+              zIndex={1}
+              textStyle={i == 0 ? "lg" : "md"}
+              className={
+                colorMode === "light"
+                  ? "info-card-text info-card-text-light"
+                  : "info-card-text info-card-text-dark"
+              }
+            >
+              {text}
+            </Card.Description>
+          );
+        })}
       </Card.Body>
       <Card.Footer zIndex={1} justifyContent="flex-end">
         <HStack>
           <Icon size="sm" aria-label="Call support" key={"ghost"}>
             <LuTag />
           </Icon>
-          <Text textStyle="xs">Hypothetical Stories</Text>
+          <Text textStyle="xs">{category}</Text>
         </HStack>
       </Card.Footer>
       <Box className={pos_img_left ? "raven left" : "raven"}>
