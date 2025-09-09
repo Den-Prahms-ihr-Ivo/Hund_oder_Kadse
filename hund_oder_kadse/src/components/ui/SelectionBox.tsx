@@ -1,4 +1,4 @@
-import { Flex, Button, HStack, Icon, Text } from "@chakra-ui/react";
+import { Flex, Button, HStack, Icon, Text, Box } from "@chakra-ui/react";
 import {
   LuScrollText,
   LuTag,
@@ -6,13 +6,18 @@ import {
   LuDrama,
   LuHeart,
   LuMessageCircleHeart,
+  LuMartini,
+  LuDumbbell,
+  LuForklift,
+  LuRabbit,
 } from "react-icons/lu";
-import { Fragment } from "react/jsx-runtime";
 import type { CategoryItem } from "../../context/QuestionCategoryContext";
 
 interface Props {
   items: CategoryItem[];
   title: string;
+  deselectAll: () => void;
+  selectAll: () => void;
   toggle: (id: number) => void;
 }
 
@@ -22,11 +27,22 @@ const icons = {
   drama: <LuDrama />,
   heart: <LuHeart />,
   message: <LuMessageCircleHeart />,
+  martini: <LuMartini />,
+  sport: <LuDumbbell />,
+  stunt: <LuForklift />,
+  couple: <LuHeart />,
+  funny: <LuRabbit />,
 };
 
-const SelectionBox = ({ items, title, toggle }: Props) => {
+const SelectionBox = ({
+  items,
+  title,
+  toggle,
+  deselectAll,
+  selectAll,
+}: Props) => {
   return (
-    <Fragment>
+    <Box>
       <Text textStyle={"md"} p={2}>
         {title}
       </Text>
@@ -56,7 +72,29 @@ const SelectionBox = ({ items, title, toggle }: Props) => {
           );
         })}
       </Flex>
-    </Fragment>
+      <Flex p={2} gap="4" justifyContent="center" wrap="wrap" w="100%">
+        <Button
+          onClick={deselectAll}
+          h="40px"
+          w="200px"
+          fontWeight="bold"
+          colorPalette="gray"
+          variant="surface"
+        >
+          Deselect All
+        </Button>
+        <Button
+          onClick={selectAll}
+          h="40px"
+          w="200px"
+          fontWeight="bold"
+          colorPalette="orange"
+          variant="surface"
+        >
+          Select All
+        </Button>
+      </Flex>
+    </Box>
   );
 };
 

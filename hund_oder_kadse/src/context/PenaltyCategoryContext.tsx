@@ -10,6 +10,8 @@ export type CategoryItem = {
 type PenaltyCategoriesContextType = {
   categories: CategoryItem[];
   toggle: (id: number) => void;
+  deselectAll: () => void;
+  selectAll: () => void;
 };
 
 const PenaltyCategoriesContext = createContext<
@@ -17,11 +19,14 @@ const PenaltyCategoriesContext = createContext<
 >(undefined);
 
 const test_items = [
-  { id: 0, name: "Drinks", icon: "beer", selected: true },
-  { id: 1, name: "Lifestyle & Interests", icon: "message", selected: true },
-  { id: 2, name: "Personality & Quirks", icon: "drama", selected: true },
-  { id: 3, name: "Style & Vibe", icon: "heart", selected: true },
+  { id: 0, name: "Drinks", icon: "martini", selected: true },
+  { id: 1, name: "Stunts", icon: "stunt", selected: true },
+  { id: 2, name: "Sport", icon: "sport", selected: true },
+  { id: 3, name: "Akrobatik", icon: "acrobatics", selected: true },
   { id: 4, name: "Adventurous Edges", icon: "compass", selected: true },
+  { id: 5, name: "Spaß", icon: "funny", selected: true },
+  { id: 6, name: "Pärchen", icon: "couple", selected: true },
+  { id: 7, name: "Storytime", icon: "story", selected: true },
 ];
 
 export function PenaltyCategoriesProvider({
@@ -30,6 +35,21 @@ export function PenaltyCategoriesProvider({
   children: ReactNode;
 }) {
   const [categories, setCategories] = useState<CategoryItem[]>(test_items); // TODO: make empty
+
+  const selectAll = () => {
+    const tmp = [...categories];
+    tmp.forEach((_, i) => {
+      tmp[i].selected = true;
+    });
+    setCategories(tmp);
+  };
+  const deselectAll = () => {
+    const tmp = [...categories];
+    tmp.forEach((_, i) => {
+      tmp[i].selected = false;
+    });
+    setCategories(tmp);
+  };
 
   const toggle = (id: number) => {
     const tmp = [...categories];
@@ -42,7 +62,9 @@ export function PenaltyCategoriesProvider({
   };
 
   return (
-    <PenaltyCategoriesContext.Provider value={{ categories, toggle }}>
+    <PenaltyCategoriesContext.Provider
+      value={{ categories, toggle, selectAll, deselectAll }}
+    >
       {children}
     </PenaltyCategoriesContext.Provider>
   );

@@ -10,6 +10,8 @@ export type CategoryItem = {
 type QuestionCategoriesContextType = {
   categories: CategoryItem[];
   toggle: (id: number) => void;
+  deselectAll: () => void;
+  selectAll: () => void;
 };
 
 const QuestionCategoriesContext = createContext<
@@ -31,6 +33,20 @@ export function QuestionCategoriesProvider({
 }) {
   const [categories, setCategories] = useState<CategoryItem[]>(test_items); // TODO: make empty
 
+  const selectAll = () => {
+    const tmp = [...categories];
+    tmp.forEach((_, i) => {
+      tmp[i].selected = true;
+    });
+    setCategories(tmp);
+  };
+  const deselectAll = () => {
+    const tmp = [...categories];
+    tmp.forEach((_, i) => {
+      tmp[i].selected = false;
+    });
+    setCategories(tmp);
+  };
   const toggle = (id: number) => {
     const tmp = [...categories];
     tmp.forEach((category, i) => {
@@ -42,7 +58,9 @@ export function QuestionCategoriesProvider({
   };
 
   return (
-    <QuestionCategoriesContext.Provider value={{ categories, toggle }}>
+    <QuestionCategoriesContext.Provider
+      value={{ categories, toggle, selectAll, deselectAll }}
+    >
       {children}
     </QuestionCategoriesContext.Provider>
   );
