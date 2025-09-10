@@ -46,6 +46,7 @@
 /*   Eigene Klassen */
 .dark {
   background-color: #151517;
+  background: linear-gradient(180deg, #36343b 10%, #212327 100%);
 }
 .light {
   background-color: #eceef9;
@@ -53,6 +54,14 @@
 
 .info-card {
   border: none;
+}
+
+.text-dark {
+  color: #fafafa;
+}
+
+.text-light {
+  color: #151517;
 }
 
 .info-card-light {
@@ -86,6 +95,7 @@
 }
 .clickable:hover {
   background-color: #fafafa;
+  color: #212327;
 }
 
 .header {
@@ -152,6 +162,7 @@
 }
 .selection-box:hover {
   background-color: #fafafa;
+  color: #212327;
 }
 
 .selection-box > div > svg {

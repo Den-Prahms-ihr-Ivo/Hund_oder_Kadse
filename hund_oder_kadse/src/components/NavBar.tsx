@@ -1,11 +1,14 @@
-import { VStack, Text, HStack, Flex, Box, Icon } from "@chakra-ui/react";
+import { VStack, HStack, Flex, Box, Icon } from "@chakra-ui/react";
 import { LuGamepad2, LuDatabaseZap, LuTags } from "react-icons/lu";
 import LinkWrapper from "../components/ui/link";
+import Text from "./ui/TextComponent";
 
 import { useIsSideBar } from "../context/SideBarContext";
+import { useColorMode } from "./ui/color-mode";
 
 const NavBar = () => {
   const { isSideBar } = useIsSideBar();
+  const { colorMode } = useColorMode();
 
   if (isSideBar) {
     return (
@@ -17,7 +20,11 @@ const NavBar = () => {
         >
           <LinkWrapper to="/">
             <HStack>
-              <Icon m="2" size="lg">
+              <Icon
+                m="2"
+                size="lg"
+                className={colorMode == "light" ? "text-light" : "text-dark"}
+              >
                 <LuGamepad2 />
               </Icon>
               <Text textStyle="xs">Los geht's!</Text>
@@ -28,7 +35,11 @@ const NavBar = () => {
         <Box py={2} width="130px" className="clickable">
           <LinkWrapper to="/categories">
             <HStack>
-              <Icon m="2" size="lg">
+              <Icon
+                m="2"
+                size="lg"
+                className={colorMode == "light" ? "text-light" : "text-dark"}
+              >
                 <LuTags />
               </Icon>
               <Text textStyle="xs">Kategorien</Text>
@@ -39,7 +50,11 @@ const NavBar = () => {
         <Box py={2} width="130px" className="clickable">
           <LinkWrapper to="/database">
             <HStack>
-              <Icon m="2" size="lg">
+              <Icon
+                m="2"
+                size="lg"
+                className={colorMode == "light" ? "text-light" : "text-dark"}
+              >
                 <LuDatabaseZap />
               </Icon>
               <Text textStyle="xs">Datenbank</Text>
