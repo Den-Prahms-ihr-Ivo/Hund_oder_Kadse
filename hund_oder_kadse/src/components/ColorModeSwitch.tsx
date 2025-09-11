@@ -9,7 +9,12 @@ const ColorModeSwitch = () => {
 
   return (
     <ClientOnly fallback={<Skeleton boxSize="8" />}>
-      <IconButton onClick={toggleColorMode} variant="outline" size="sm">
+      <IconButton
+        onClick={toggleColorMode}
+        variant="outline"
+        size="sm"
+        className={colorMode == "light" ? "text-light" : "text-dark"}
+      >
         {colorMode === "light" ? <LuSun /> : <LuMoon />}
       </IconButton>
     </ClientOnly>
