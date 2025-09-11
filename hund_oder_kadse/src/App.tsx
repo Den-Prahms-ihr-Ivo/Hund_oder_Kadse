@@ -42,7 +42,7 @@ function App() {
       gap="0"
       color="blackAlpha.700"
       fontWeight="bold"
-      className={colorMode === "light" ? "light" : "dark"}
+      className={colorMode === "light" ? "light-app" : "dark-app"}
     >
       <GridItem p="0" area={"header"} className="header">
         <Header />

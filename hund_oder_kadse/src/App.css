@@ -44,12 +44,19 @@
 */
 
 /*   Eigene Klassen */
-.dark {
+.dark-app {
   background-color: #151517;
   background: linear-gradient(180deg, #36343b 10%, #212327 100%);
 }
-.light {
+.light-app {
   background-color: #eceef9;
+}
+
+.light {
+  color: #212327;
+}
+.dark {
+  color: #fafafa;
 }
 
 .info-card {
@@ -59,9 +66,8 @@
 .text-dark {
   color: #fafafa;
 }
-
 .text-light {
-  color: #151517;
+  color: #212327;
 }
 
 .info-card-light {
@@ -98,6 +104,16 @@
   color: #212327;
 }
 
+.clickable:hover > a > div > .text-dark,
+.clickable:hover > a > div > p > .text-dark {
+  color: #212327;
+}
+.clickable:hover > a > div > .text-light,
+.clickable:hover > p,
+.clickable:hover > a > div > p > .text-light {
+  color: #212327;
+}
+
 .header {
 }
 .header-light {
@@ -109,9 +125,10 @@
 }
 
 .nav-bar {
+  color: #fafafa;
 }
 
-.nav-bar-active {
+.nav-bar-active.light {
   border-top: solid 3px #fc4e0b;
   border-radius: 0% 0% 0.5rem 0.5rem;
   background: linear-gradient(
@@ -120,7 +137,7 @@
     rgba(116, 161, 182, 0.2) 100%
   );
 }
-.nav-bar-active-side {
+.nav-bar-active-side.light {
   border-top: none;
   background: linear-gradient(
     270deg,
@@ -130,12 +147,42 @@
   border-radius: 0% 0.5rem 0.5rem 0%;
   border-left: solid 3px #fc4e0b;
 }
-.nav-bar-active > a > div > svg {
-  color: #fc4e0b;
+.nav-bar-active.light > a > div > p > svg,
+.nav-bar-active.light a > div > p > p {
+  color: #fc4e0b !important;
+  font-weight: bolder;
 }
 
-.nav-bar-bottom {
+.nav-bar-active.dark {
+  border-top: solid 3px #4148ff;
+  border-radius: 0% 0% 0.5rem 0.5rem;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(116, 161, 182, 0.2) 100%
+  );
+}
+.nav-bar-active-side.dark {
+  border-top: none;
+  background: linear-gradient(
+    270deg,
+    rgba(54, 107, 135, 0) 70%,
+    rgba(116, 161, 182, 0.15) 100%
+  );
+  border-radius: 0% 0.5rem 0.5rem 0%;
+  border-left: solid 3px #428dff;
+}
+.nav-bar-active.dark > a > div > p > svg,
+.nav-bar-active.dark a > div > p > p {
+  color: #428dff !important;
+  font-weight: bolder;
+}
+
+.nav-bar-bottom.light {
   background-color: rgba(255, 255, 255, 0.5);
+}
+.nav-bar-bottom.dark {
+  /* background-color: rgba(43, 45, 51, 0.5); */
 }
 
 .raven {

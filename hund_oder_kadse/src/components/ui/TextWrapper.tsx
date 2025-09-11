@@ -22,7 +22,7 @@ interface Props {
   marginEnd?: ConditionalValue<string | undefined>;
 }
 
-const Text = ({ children, textStyle, marginEnd }: Props) => {
+const TextWrapper = ({ children, textStyle, marginEnd }: Props) => {
   const { colorMode } = useColorMode();
 
   return (
@@ -36,4 +36,4 @@ const Text = ({ children, textStyle, marginEnd }: Props) => {
   );
 };
 
-export default Text;
+export default TextWrapper;

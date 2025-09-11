@@ -3,6 +3,7 @@
 import { ClientOnly, IconButton, Skeleton } from "@chakra-ui/react";
 import { LuMoon, LuSun } from "react-icons/lu";
 import { useColorMode } from "../components/ui/color-mode";
+import TextWrapper from "./ui/TextWrapper";
 
 const ColorModeSwitch = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -13,9 +14,13 @@ const ColorModeSwitch = () => {
         onClick={toggleColorMode}
         variant="outline"
         size="sm"
-        className={colorMode == "light" ? "text-light" : "text-dark"}
+        className={
+          "clickable " + (colorMode == "light" ? "text-light" : "text-dark")
+        }
       >
-        {colorMode === "light" ? <LuSun /> : <LuMoon />}
+        <TextWrapper>
+          {colorMode === "light" ? <LuSun /> : <LuMoon />}
+        </TextWrapper>
       </IconButton>
     </ClientOnly>
   );
