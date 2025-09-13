@@ -16,7 +16,7 @@ import NotFound from "./components/NotFound";
 import Database from "./components/Database";
 import Header from "./components/Header";
 import { useIsSideBar } from "./context/SideBarContext";
-import Categories from "./components/categories";
+import Categories from "./components/Categories";
 // import PlatformSelector from "./components/PlatformSelector";
 // import SortSelector from "./components/SortSelector";
 // import { Platform } from "./hooks/useGames";
