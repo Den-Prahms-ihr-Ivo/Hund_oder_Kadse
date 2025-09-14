@@ -2,7 +2,7 @@
 
 import { ClientOnly, IconButton, Skeleton } from "@chakra-ui/react";
 import { LuMoon, LuSun } from "react-icons/lu";
-import { useColorMode } from "../components/ui/color-mode";
+import { useColorMode } from "./ui/color-mode";
 import TextWrapper from "./ui/TextWrapper";
 
 const ColorModeSwitch = () => {

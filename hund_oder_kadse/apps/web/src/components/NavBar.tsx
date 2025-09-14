@@ -1,6 +1,6 @@
 import { VStack, HStack, Flex, Box, Icon, Text } from "@chakra-ui/react";
 import { LuGamepad2, LuDatabaseZap, LuTags } from "react-icons/lu";
-import LinkWrapper from "../components/ui/link";
+import LinkWrapper from "./ui/link";
 import TextWrapper from "./ui/TextWrapper";
 
 import { useIsSideBar } from "../context/SideBarContext";

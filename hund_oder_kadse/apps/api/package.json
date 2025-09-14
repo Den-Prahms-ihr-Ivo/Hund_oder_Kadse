@@ -1,0 +1,28 @@
+{
+  "name": "hund_oder_kadse_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Den-Prahms-ihr-Ivo/Hund_oder_Kadse_Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Den-Prahms-ihr-Ivo/Hund_oder_Kadse_Backend/issues"
+  },
+  "homepage": "https://github.com/Den-Prahms-ihr-Ivo/Hund_oder_Kadse_Backend#readme",
+  "devDependencies": {
+    "@types/node": "^24.3.3"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "joi": "^18.0.1"
+  }
+}
