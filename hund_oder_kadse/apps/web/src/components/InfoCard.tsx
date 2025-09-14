@@ -1,5 +1,5 @@
 import { Text, Card, HStack, Icon, Box, Image } from "@chakra-ui/react";
-import { useColorMode } from "../components/ui/color-mode";
+import { useColorMode } from "./ui/color-mode";
 import { LuTag } from "react-icons/lu";
 import raven_2 from "../assets/raven_2.svg";
 import raven from "../assets/raven.svg";

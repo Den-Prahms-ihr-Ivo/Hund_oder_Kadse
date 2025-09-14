@@ -1,6 +1,11 @@
 {
   "dependencies": {
     "@chakra-ui/react": "^3.26.0",
-    "@emotion/react": "^11.14.0"
+    "@emotion/react": "^11.14.0",
+    "@types/node": "^24.3.3"
+  },
+  "scripts": {
+    "dev-server": "nodemon ./hund_oder_kadse/apps/api/src/index.ts",
+    "dev-app": "cd ./hund_oder_kadse/apps/web/ && npx vite"
   }
 }
